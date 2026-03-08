@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Employee Information</title>
+  <link rel="stylesheet" href="../../assets/css/style.css">
+  <script src="../../assets/js/app.js" defer></script>
+</head>
+<body>
+  
+<main class="page">
+  <h1 class="page-title">Employee Information</h1>
+  <div id="successMessage" class="success-message"></div>
+
+  <div class="info-layout">
+    <div>
+      <section class="panel">
+        <h2>Employee Information</h2>
+        <div class="info-lines">
+          <div><strong>Name:</strong> John Smith</div>
+          <div><strong>Employee ID:</strong> E1023</div>
+          <div><strong>Department:</strong> Warehouse</div>
+          <div><strong>Position:</strong> Associate</div>
+        </div>
+      </section>
+
+      <section class="panel" style="margin-top: 28px;">
+        <h2>Equipment Information</h2>
+        <div id="assignedEquipmentArea"></div>
+      </section>
+    </div>
+
+    <div class="right-column">
+      <div class="avatar-box">
+        <img src="../../assets/img/employee-placeholder.png" alt="Employee placeholder photo">
+      </div>
+
+      <a class="btn-link" href="available-equipment.html">Equipment Signout</a>
+      <a class="btn-link secondary" href="#" onclick="alert('Mock UI only for this increment.'); return false;">Equipment Return</a>
+      <a class="btn-link secondary" href="#" onclick="alert('Mock UI only for this increment.'); return false;">Employee Notes</a>
+      <a class="btn-link secondary" href="search.html">Back</a>
+    </div>
+  </div>
+</main>
+
+</body>
+</html>

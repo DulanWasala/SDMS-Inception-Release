@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Available Equipment</title>
+  <link rel="stylesheet" href="../../assets/css/style.css">
+  <script src="../../assets/js/app.js" defer></script>
+</head>
+<body>
+  
+<main class="page center-page">
+  <h1 class="page-title">Available Equipment</h1>
+
+  <div class="filter-row">
+    <label for="itemType"><strong>Item Type</strong></label>
+    <select id="itemType" class="select-field" style="width: 180px;">
+      <option>Scanner</option>
+      <option>Radio</option>
+      <option>Tablet</option>
+    </select>
+  </div>
+
+  <div class="equipment-list">
+    <div class="equipment-row" onclick="showSignoutModal('EQ001', 'Scanner', 'Scanner')">EQ001 | Scanner | Good | Available</div>
+    <div class="equipment-row" onclick="showSignoutModal('EQ002', 'Scanner', 'Scanner')">EQ002 | Scanner | Good | Available</div>
+    <div class="equipment-row" onclick="showSignoutModal('EQ010', 'Radio', 'Radio')">EQ010 | Radio | Good | Available</div>
+    <div class="equipment-row" onclick="showSignoutModal('EQ018', 'Tablet', 'Tablet')">EQ018 | Tablet | Good | Available</div>
+  </div>
+
+  <div class="back-row">
+    <a class="btn-link secondary" href="employee-info.html">Back</a>
+  </div>
+</main>
+
+<div id="signoutModal" class="modal-backdrop">
+  <div class="modal">
+    <h2>Confirm Equipment Signout</h2>
+    <p><strong>Employee Name:</strong> John Smith</p>
+    <p><strong>Employee ID:</strong> E1023</p>
+    <p><strong>Item ID:</strong> <span id="modalItemId">EQ001</span></p>
+    <p><strong>Item Name:</strong> <span id="modalItemName">Scanner</span></p>
+    <p><strong>Item Type:</strong> <span id="modalItemType">Scanner</span></p>
+    <p><strong>Time Out:</strong> 10:30 AM</p>
+
+    <label for="conditionSelect"><strong>Condition:</strong></label>
+    <select id="conditionSelect" class="select-field">
+      <option>Good</option>
+      <option>Minor Damage</option>
+      <option>Damaged</option>
+    </select>
+
+    <p class="note">UI-only mock functionality for the product increment.</p>
+
+    <div class="modal-actions">
+      <button class="btn" onclick="confirmEquipmentSignout()">Confirm</button>
+      <button class="btn secondary" onclick="hideSignoutModal()">Cancel</button>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
