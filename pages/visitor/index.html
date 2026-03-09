@@ -15,17 +15,19 @@
 
   <div class="stack" style="margin-top: 80px;">
 
-    <input class="input-field" type="text" placeholder="Employee Name">
-
-    <input class="input-field" type="text" placeholder="Employee ID">
-
-    <input class="input-field" type="text" placeholder="Company Name">
+    <input id="empName" class="input-field" type="text" placeholder="Employee Name">
+    <input id="empID" class="input-field" type="text" placeholder="Employee ID">
+    <input id="company" class="input-field" type="text" placeholder="Company Name">
 
     <button class="btn-link" onclick="showTempOptions()">Sign In</button>
 
   </div>
 
-  <div id="tempOptions" class="menu-buttons" style="margin-top:40px; display:none;">
+  <!-- Welcome Message -->
+  <h2 id="welcomeMessage" style="margin-top:30px;"></h2>
+
+  <!-- Options after sign in -->
+  <div id="tempOptions" class="menu-buttons" style="margin-top:30px; display:none;">
 
     <a class="btn-link" href="../equipment/available-equipment.html">
       Request Equipment
@@ -45,11 +47,19 @@
 
 <script>
   function showTempOptions() {
+
+    const name = document.getElementById("empName").value;
+    const id = document.getElementById("empID").value;
+    const company = document.getElementById("company").value;
+
+    const welcome = document.getElementById("welcomeMessage");
+    welcome.textContent = `Welcome! ${name} - ${id} - ${company}`;
+
     document.getElementById("tempOptions").style.display = "flex";
   }
 
   function deleteProfile() {
-    alert("Temporary Worker Profile Deleted (UI demo)");
+    alert("Temporary Worker Profile Deleted (UI Demo)");
   }
 </script>
 
