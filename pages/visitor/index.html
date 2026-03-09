@@ -3,21 +3,55 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Visitor</title>
+  <title>Temp Worker Sign In</title>
   <link rel="stylesheet" href="../../assets/css/style.css">
   <script src="../../assets/js/app.js" defer></script>
 </head>
 <body>
-  
-<main class="page">
-  <div class="placeholder-message">
-    <h2>Visitor Page</h2>
-    <p>This page is intentionally left blank for this increment.</p>
-    <div style="margin-top: 28px;">
-      <a class="btn-link secondary" href="../home.html">Back</a>
-    </div>
+
+<main class="page center-page">
+
+  <h1 class="page-title">Temporary Worker Sign In</h1>
+
+  <div class="stack" style="margin-top: 80px;">
+
+    <input class="input-field" type="text" placeholder="Employee Name">
+
+    <input class="input-field" type="text" placeholder="Employee ID">
+
+    <input class="input-field" type="text" placeholder="Company Name">
+
+    <button class="btn-link" onclick="showTempOptions()">Sign In</button>
+
   </div>
+
+  <div id="tempOptions" class="menu-buttons" style="margin-top:40px; display:none;">
+
+    <a class="btn-link" href="../equipment/available-equipment.html">
+      Request Equipment
+    </a>
+
+    <button class="btn-link secondary" onclick="deleteProfile()">
+      Delete Profile
+    </button>
+
+  </div>
+
+  <div style="margin-top: 40px;">
+    <a class="btn-link secondary" href="../home.html">Back</a>
+  </div>
+
 </main>
+
+<script>
+  function showTempOptions() {
+    document.getElementById("tempOptions").style.display = "flex";
+  }
+
+  function deleteProfile() {
+    alert("Temporary Worker Profile Deleted (UI demo)");
+  }
+</script>
 
 </body>
 </html>
