@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Log Found Item</title>
+  <link rel="stylesheet" href="../../assets/css/style.css">
+  <script src="../../assets/js/app.js" defer></script>
+</head>
+<body>
+
+<main class="page center-page">
+  <h1 class="page-title">Log Found Item</h1>
+
+  <div id="foundItemSuccessMessage" class="success-message" style="display:none;"></div>
+
+  <div class="stack">
+    <input id="foundItemDescription" class="input-field" type="text" placeholder="Item Description">
+
+    <select id="foundLocation" class="select-field">
+      <option value="">Select Location Found</option>
+      <option>Warehouse Floor</option>
+      <option>Security Desk</option>
+      <option>Break Room</option>
+      <option>Loading Dock</option>
+      <option>Parking Area</option>
+    </select>
+
+    <input id="dateFound" class="input-field" type="date">
+
+    <select id="storageLocation" class="select-field">
+      <option value="">Select Storage Location</option>
+      <option>Lost &amp; Found Shelf A</option>
+      <option>Lost &amp; Found Shelf B</option>
+      <option>Lost &amp; Found Locker 1</option>
+      <option>Lost &amp; Found Locker 2</option>
+    </select>
+
+    <textarea
+      id="foundNotes"
+      class="input-field"
+      placeholder="Additional Notes"
+      style="min-height: 120px; resize: vertical;"
+    ></textarea>
+
+    <button class="btn" onclick="submitFoundItemLog()">Save Item</button>
+    <a class="btn-link secondary" href="index.html">Back</a>
+  </div>
+</main>
+
+<script>
+  function submitFoundItemLog() {
+    const description = document.getElementById("foundItemDescription").value.trim();
+    const foundLocation = document.getElementById("foundLocation").value;
+    const dateFound = document.getElementById("dateFound").value;
+    const storageLocation = document.getElementById("storageLocation").value;
+    const successBox = document.getElementById("foundItemSuccessMessage");
+
+    if (!description || !foundLocation || !dateFound || !storageLocation) {
+      alert("Please complete the required fields before saving.");
+      return;
+    }
+
+    successBox.style.display = "block";
+    successBox.textContent =
+      `Found item "${description}" has been logged and stored in ${storageLocation}.`;
+
+    document.getElementById("foundNotes").value = "";
+  }
+</script>
+
+</body>
+</html>
