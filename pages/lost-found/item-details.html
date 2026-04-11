@@ -18,41 +18,22 @@
     <div>
       <section class="panel">
         <h2>Item Information</h2>
-        <div class="info-lines">
-          <div><strong>Item ID:</strong> LF001</div>
-          <div><strong>Description:</strong> Black Wallet</div>
-          <div><strong>Status:</strong> Found</div>
-          <div><strong>Date Reported:</strong> 2026-03-08</div>
-          <div><strong>Location Found:</strong> Break Room</div>
-          <div><strong>Storage Location:</strong> Lost &amp; Found Shelf A</div>
-        </div>
+        <div id="lostFoundItemInfo"></div>
       </section>
 
       <section class="panel" style="margin-top: 28px;">
         <h2>Claim Information</h2>
-        <div class="info-lines">
-          <div><strong>Claimant Name:</strong> John Smith</div>
-          <div><strong>Employee ID:</strong> E1023</div>
-          <div><strong>Verification Status:</strong> Pending</div>
-        </div>
+        <div id="lostFoundClaimInfo"></div>
       </section>
     </div>
 
     <div class="right-column">
-      <a class="btn-link" href="#" onclick="claimItem(); return false;">Claim Item</a>
+      <a id="claimItemButton" class="btn-link" href="#" onclick="claimCurrentLostFoundItem(); return false;">Claim Item</a>
       <a class="btn-link secondary" href="#" onclick="alert('Mock UI only for this increment.'); return false;">Update Item Status</a>
       <a class="btn-link secondary" href="search.html">Back to Search</a>
     </div>
   </div>
 </main>
-
-<script>
-  function claimItem() {
-    const successBox = document.getElementById("claimSuccessMessage");
-    successBox.style.display = "block";
-    successBox.textContent = "Claim request submitted for item LF001. Verification is now pending.";
-  }
-</script>
 
 </body>
 </html>

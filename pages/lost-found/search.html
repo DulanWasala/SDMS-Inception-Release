@@ -19,23 +19,14 @@
       <option>All Statuses</option>
       <option>Lost</option>
       <option>Found</option>
+      <option>Pending Verification</option>
       <option>Claimed</option>
     </select>
 
-    <a class="btn-link" href="item-details.html">Search</a>
+    <a class="btn-link" href="#" onclick="return false;">Search</a>
   </div>
 
-  <div class="equipment-list">
-    <a class="equipment-row" href="item-details.html" style="display:block; color:inherit; text-decoration:none;">
-      LF001 | Black Wallet | Found | 2026-03-08
-    </a>
-    <a class="equipment-row" href="item-details.html" style="display:block; color:inherit; text-decoration:none;">
-      LF002 | Blue Water Bottle | Lost | 2026-03-07
-    </a>
-    <a class="equipment-row" href="item-details.html" style="display:block; color:inherit; text-decoration:none;">
-      LF003 | Employee Badge | Claimed | 2026-03-06
-    </a>
-  </div>
+  <div id="lostFoundResults" class="equipment-list"></div>
 
   <div class="back-row">
     <a class="btn-link secondary" href="index.html">Back</a>
