@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Claim Lost Item</h1>
+<div class="card">
+<p><strong>Item:</strong> {{ item['item_name'] }}</p>
+<p><strong>Description:</strong> {{ item['item_description'] }}</p>
+<p><strong>Found Location:</strong> {{ item['found_location'] }}</p>
+<p><strong>Found Date:</strong> {{ item['found_date'] }}</p>
+<p><strong>Status:</strong> {{ item['status'] }}</p>
+</div>
+<form method="post" class="card">
+<label>Claimed By</label>
+<input type="text" name="claimed_by" placeholder="Enter employee or visitor name" required>
+<div class="button-row">
+<button type="submit">Confirm Claim</button>
+<a class="btn secondary" href="{{ url_for('lost_found.items') }}">Cancel</a>
+</div>
+</form>
+{% endblock %}

@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Temp Sign In</h1>
+<div class="card">
+<p><strong>Temp Worker:</strong> {{ temp_worker['full_name'] }} ({{ temp_worker['temp_id'] }})</p>
+<p><strong>Company:</strong> {{ temp_worker['company_name'] }}</p>
+</div>
+<form method="post" class="card">
+<div class="grid">
+<div><label>Purpose</label><input type="text" name="purpose" placeholder="Shift work, training, visit..." required></div>
+<div><label>Issued By</label><input type="text" name="issued_by" placeholder="Security clerk name" required></div>
+</div>
+<div class="button-row">
+<button type="submit">Confirm Sign In</button>
+<a class="btn secondary" href="{{ url_for('visitor_admin.temp_profile', temp_worker_id=temp_worker['id']) }}">Cancel</a>
+</div>
+</form>
+{% endblock %}

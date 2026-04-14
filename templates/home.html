@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Home</h1>
+<p class="muted">This version includes working flows for equipment checkout, temp sign in, and claiming lost items.</p>
+<div class="button-row">
+    <a class="btn" href="{{ url_for('equipment.employee_search') }}">Equipment Management</a>
+    <a class="btn" href="{{ url_for('visitor_admin.index') }}">Visitor System & Admin Panel</a>
+    <a class="btn" href="{{ url_for('lost_found.index') }}">Lost and Found</a>
+    <a class="btn secondary" href="{{ url_for('equipment.transactions') }}">Equipment Transactions</a>
+    <a class="btn secondary" href="{{ url_for('visitor_admin.signins') }}">Temp Sign In Records</a>
+    <a class="btn secondary" href="{{ url_for('lost_found.items') }}">Lost & Found Items</a>
+</div>
+{% endblock %}

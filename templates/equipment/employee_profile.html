@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Employee Profile</h1>
+<div class="grid">
+<div class="card">
+<h2>{{ employee['full_name'] }}</h2>
+<p><strong>Employee ID:</strong> {{ employee['employee_id'] }}</p>
+<p><strong>Department:</strong> {{ employee['department'] }}</p>
+<p><strong>Role:</strong> {{ employee['role_name'] }}</p>
+</div>
+<div class="card">
+<h2>Current Assignments</h2>
+{% if current_assignments %}
+<table><tr><th>Code</th><th>Type</th><th>Checked Out</th></tr>
+{% for item in current_assignments %}
+<tr><td>{{ item['equipment_code'] }}</td><td>{{ item['equipment_type'] }}</td><td>{{ item['checkout_time'] }}</td></tr>
+{% endfor %}
+</table>
+{% else %}<p class="muted">No active equipment assignments.</p>{% endif %}
+</div>
+</div>
+<div class="button-row">
+<a class="btn" href="{{ url_for('equipment.equipment_checkout', employee_id=employee['id']) }}">Check Out Equipment</a>
+<a class="btn secondary" href="{{ url_for('equipment.employee_search') }}">Back</a>
+</div>
+{% endblock %}

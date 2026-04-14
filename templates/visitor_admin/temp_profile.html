@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Temp Worker Profile</h1>
+<div class="grid">
+<div class="card">
+<h2>{{ temp_worker['full_name'] }}</h2>
+<p><strong>Temp ID:</strong> {{ temp_worker['temp_id'] }}</p>
+<p><strong>Company:</strong> {{ temp_worker['company_name'] }}</p>
+</div>
+<div class="card">
+<h2>Sign In History</h2>
+{% if signins %}
+<table><tr><th>Time</th><th>Purpose</th><th>Status</th></tr>
+{% for row in signins %}
+<tr><td>{{ row['sign_in_time'] }}</td><td>{{ row['purpose'] }}</td><td><span class="pill signedin">{{ row['status'] }}</span></td></tr>
+{% endfor %}
+</table>
+{% else %}<p class="muted">No sign in records yet.</p>{% endif %}
+</div>
+</div>
+<div class="button-row">
+<a class="btn" href="{{ url_for('visitor_admin.temp_signin', temp_worker_id=temp_worker['id']) }}">Temp Sign In</a>
+<a class="btn secondary" href="{{ url_for('visitor_admin.temp_search') }}">Back</a>
+</div>
+{% endblock %}

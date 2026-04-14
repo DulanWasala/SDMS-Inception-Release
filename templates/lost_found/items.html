@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Lost and Found Items</h1>
+<table>
+<tr><th>ID</th><th>Item</th><th>Description</th><th>Found Location</th><th>Found Date</th><th>Status</th><th>Claimed By</th><th>Action</th></tr>
+{% for row in rows %}
+<tr>
+<td>{{ row['id'] }}</td>
+<td>{{ row['item_name'] }}</td>
+<td>{{ row['item_description'] }}</td>
+<td>{{ row['found_location'] }}</td>
+<td>{{ row['found_date'] }}</td>
+<td>{% if row['status'] == 'Claimed' %}<span class="pill claimed">{{ row['status'] }}</span>{% else %}<span class="pill unclaimed">{{ row['status'] }}</span>{% endif %}</td>
+<td>{{ row['claimed_by'] if row['claimed_by'] else '-' }}</td>
+<td>{% if row['status'] == 'Unclaimed' %}<a class="btn warn" href="{{ url_for('lost_found.claim_item', item_id=row['id']) }}">Claim</a>{% else %}-{% endif %}</td>
+</tr>
+{% endfor %}
+</table>
+<div class="button-row"><a class="btn secondary" href="{{ url_for('lost_found.index') }}">Back</a></div>
+{% endblock %}

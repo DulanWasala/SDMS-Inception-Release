@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Equipment Transactions</h1>
+<table>
+<tr><th>ID</th><th>Employee</th><th>Equipment</th><th>Issued By</th><th>Condition</th><th>Checkout Time</th><th>Status</th></tr>
+{% for row in rows %}
+<tr>
+<td>{{ row['id'] }}</td>
+<td>{{ row['full_name'] }} ({{ row['employee_id'] }})</td>
+<td>{{ row['equipment_code'] }} - {{ row['equipment_type'] }}</td>
+<td>{{ row['issued_by'] }}</td>
+<td>{{ row['checkout_condition'] }}</td>
+<td>{{ row['checkout_time'] }}</td>
+<td>{% if row['return_time'] %}<span class="pill available">Returned</span>{% else %}<span class="pill checkedout">Checked Out</span>{% endif %}</td>
+</tr>
+{% endfor %}
+</table>
+<div class="button-row"><a class="btn secondary" href="{{ url_for('home') }}">Back</a></div>
+{% endblock %}

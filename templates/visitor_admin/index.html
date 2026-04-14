@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Visitor System & Admin Panel</h1>
+<p class="muted">This area includes a working temp sign in flow.</p>
+<div class="button-row">
+<a class="btn" href="{{ url_for('visitor_admin.temp_search') }}">Temp Worker Search</a>
+<a class="btn secondary" href="{{ url_for('visitor_admin.signins') }}">View Sign In Records</a>
+<a class="btn secondary" href="{{ url_for('home') }}">Back</a>
+</div>
+{% endblock %}

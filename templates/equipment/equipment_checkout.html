@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Equipment Checkout</h1>
+<div class="card">
+<p><strong>Employee:</strong> {{ employee['full_name'] }} ({{ employee['employee_id'] }})</p>
+<p><strong>Department:</strong> {{ employee['department'] }}</p>
+</div>
+<form method="post" class="card">
+<h2>Available Equipment</h2>
+{% if available_equipment %}
+<table>
+<tr><th>Select</th><th>Code</th><th>Type</th><th>Profile</th><th>Status</th><th>Condition</th></tr>
+{% for item in available_equipment %}
+<tr>
+<td><input type="radio" name="equipment_id" value="{{ item['id'] }}" required></td>
+<td>{{ item['equipment_code'] }}</td>
+<td>{{ item['equipment_type'] }}</td>
+<td>{{ item['item_profile'] }}</td>
+<td><span class="pill available">{{ item['status'] }}</span></td>
+<td>{{ item['condition_name'] }}</td>
+</tr>
+{% endfor %}
+</table>
+<div class="grid" style="margin-top:20px;">
+<div>
+<label>Condition at Checkout</label>
+<select name="checkout_condition" required>
+<option value="">Select condition</option>
+<option value="Good">Good</option>
+<option value="Fair">Fair</option>
+<option value="Damaged">Damaged</option>
+</select>
+</div>
+<div>
+<label>Issued By</label>
+<input type="text" name="issued_by" placeholder="Security clerk name" required>
+</div>
+</div>
+<div class="button-row">
+<button type="submit">Confirm Checkout</button>
+<a class="btn secondary" href="{{ url_for('equipment.employee_profile', employee_id=employee['id']) }}">Cancel</a>
+</div>
+{% else %}
+<p class="muted">No equipment is currently available.</p>
+<div class="button-row"><a class="btn secondary" href="{{ url_for('equipment.employee_profile', employee_id=employee['id']) }}">Back</a></div>
+{% endif %}
+</form>
+{% endblock %}

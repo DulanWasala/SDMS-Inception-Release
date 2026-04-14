@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Temp Worker Search</h1>
+<p>Search by temp ID or name to start temp sign in.</p>
+<form method="post" class="search-box">
+<input type="text" name="search_value" placeholder="Enter temp ID or name" value="{{ search_value }}" required>
+<button type="submit">Search</button>
+</form>
+{% if search_value %}
+<h2>Results</h2>
+{% if results %}
+<table>
+<tr><th>Temp ID</th><th>Name</th><th>Company</th><th>Action</th></tr>
+{% for row in results %}
+<tr>
+<td>{{ row['temp_id'] }}</td>
+<td>{{ row['full_name'] }}</td>
+<td>{{ row['company_name'] }}</td>
+<td><a class="btn" href="{{ url_for('visitor_admin.temp_profile', temp_worker_id=row['id']) }}">Open</a></td>
+</tr>
+{% endfor %}
+</table>
+{% else %}<p>No temp workers found.</p>{% endif %}
+{% endif %}
+<div class="button-row"><a class="btn secondary" href="{{ url_for('visitor_admin.index') }}">Back</a></div>
+{% endblock %}

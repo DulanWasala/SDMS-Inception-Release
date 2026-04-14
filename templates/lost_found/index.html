@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Lost and Found</h1>
+<p class="muted">This area includes a working claim lost item flow.</p>
+<div class="button-row">
+<a class="btn" href="{{ url_for('lost_found.items') }}">View Lost & Found Items</a>
+<a class="btn secondary" href="{{ url_for('home') }}">Back</a>
+</div>
+{% endblock %}

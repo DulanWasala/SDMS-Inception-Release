@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Employee Search</h1>
+<p>Search by employee ID or name to start equipment checkout.</p>
+<form method="post" class="search-box">
+    <input type="text" name="search_value" placeholder="Enter employee ID or name" value="{{ search_value }}" required>
+    <button type="submit">Search</button>
+</form>
+{% if search_value %}
+<h2>Results</h2>
+{% if results %}
+<table>
+<tr><th>Employee ID</th><th>Name</th><th>Department</th><th>Role</th><th>Action</th></tr>
+{% for row in results %}
+<tr>
+<td>{{ row['employee_id'] }}</td>
+<td>{{ row['full_name'] }}</td>
+<td>{{ row['department'] }}</td>
+<td>{{ row['role_name'] }}</td>
+<td><a class="btn" href="{{ url_for('equipment.employee_profile', employee_id=row['id']) }}">Open</a></td>
+</tr>
+{% endfor %}
+</table>
+{% else %}<p>No employees found.</p>{% endif %}
+{% endif %}
+<div class="button-row"><a class="btn secondary" href="{{ url_for('home') }}">Back</a></div>
+{% endblock %}
